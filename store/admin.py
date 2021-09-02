@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.db.models import lookups
-from django.contrib.staticfiles 
+import django.contrib.staticfiles 
 from django.db.models.expressions import F, Value
 from django.utils.html import format_html
 from django.utils.http import urlencode

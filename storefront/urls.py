@@ -15,13 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
 import debug_toolbar
+
+from store import views
 
 admin.site.site_header = 'Storefront Admin'
 admin.site.index_title = 'Admin'
-# hello
+
+router = routers.DefaultRouter()
+router.register(r'products', views.ProductViewSet)
+
 urlpatterns = [
+    path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('playground/', include('playground.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
 ]
